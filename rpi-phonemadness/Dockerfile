@@ -23,7 +23,7 @@ ENV REPOSITORY https://github.com/TobiasH87/PRIVATE.telefonwahnsinn
 RUN git clone ${REPOSITORY} PhoneMadness/ \
     && cd PhoneMadness/ \
 	&& chmod +x mvnw \
-	&& cd maven && rm maven-wrapper.properties && wget https://raw.githubusercontent.com/spring-projects/spring-boot/master/.mvn/wrapper/maven-wrapper.properties && sed -i -e 's/https/http/g' maven-wrapper.properties && cd .. \
+	&& cd maven && rm maven-wrapper.properties && wget https://raw.githubusercontent.com/TobiasH87/docker/master/rpi-phonemadness/maven-wrapper.properties && sed -i -e 's/https/http/g' maven-wrapper.properties && cd .. \
 	&& ./mvnw clean package \
 	&& cp target/TelefonWahnsinn-jar-with-dependencies.jar /TelefonWahnsinn.jar \
 	&& mkdir /config && cp config/config.xml.example /config/config.xml \
