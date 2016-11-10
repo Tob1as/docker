@@ -18,16 +18,17 @@ RUN apt-get update && apt-get install -y \
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-armhf
 # Repository 
 ENV REPOSITORY https://github.com/TobiasH87/PRIVATE.telefonwahnsinn
+ENV REPOSITORY_M2_WRAPPER_PROPERTIES https://raw.githubusercontent.com/TobiasH87/docker/master/rpi-phonemadness/maven-wrapper.properties
 
 # Build Java Application 
 RUN git clone ${REPOSITORY} PhoneMadness/ \
-    && cd PhoneMadness/ \
-    && chmod +x mvnw \
-    && cd maven && rm maven-wrapper.properties && wget https://raw.githubusercontent.com/TobiasH87/docker/master/rpi-phonemadness/maven-wrapper.properties && sed -i -e 's/https/http/g' maven-wrapper.properties && cd .. \
-    && ./mvnw clean package \
-    && cp target/TelefonWahnsinn-jar-with-dependencies.jar /TelefonWahnsinn.jar \
-    && mkdir /config && cp config/config.xml.example /config/config.xml \
-    && cd .. && rm -r PhoneMadness/ 
+	&& cd PhoneMadness/ \
+	&& chmod +x mvnw \
+	&& cd maven && rm maven-wrapper.properties && wget ${REPOSITORY_M2_WRAPPER_PROPERTIES} -O maven-wrapper.properties && sed -i -e 's/https/http/g' maven-wrapper.properties && cd .. \
+	&& ./mvnw clean package \
+	&& cp target/TelefonWahnsinn-jar-with-dependencies.jar /TelefonWahnsinn.jar \
+	&& mkdir /config && cp config/config.xml.example /config/config.xml \
+	&& cd .. && rm -r PhoneMadness/ 
 
 # Define Volumes
 VOLUME ["/config","/sys/class/gpio"]
