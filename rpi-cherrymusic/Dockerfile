@@ -4,15 +4,15 @@ MAINTAINER Tobias Hargesheimer <docker@ison.ws>
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-		git \
-		lame \
-        vorbis-tools \
-        flac \
-		mpg123 \
-		opus-tools \
-		imagemagick \
-		--no-install-recommends && \
-		rm -rf /var/lib/apt/lists/* 
+	git \
+	lame \
+	vorbis-tools \
+	flac \
+	mpg123 \
+	opus-tools \
+	imagemagick \
+	--no-install-recommends && \
+	rm -rf /var/lib/apt/lists/* 
 
 RUN pip3 install unidecode cherrypy
 
@@ -21,7 +21,7 @@ RUN useradd -ms /bin/bash $APP_USER
 USER $APP_USER
 WORKDIR /home/$APP_USER/cherrymusic
 
-RUN mkdir -p /home/$APP_USER/git && cd /home/$APP_USER/git && git clone --branch master git://github.com/devsnd/cherrymusic.git
+RUN mkdir -p /home/$APP_USER/git && cd /home/$APP_USER/git && git clone git://github.com/devsnd/cherrymusic.git
 
 RUN mkdir /home/$APP_USER/Music && mkdir -p /home/$APP_USER/.config/cherrymusic && mkdir -p /home/$APP_USER/.local/share/cherrymusic && mkdir -p /home/$APP_USER/.ssl
 
