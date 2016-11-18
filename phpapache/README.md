@@ -1,6 +1,6 @@
 # Dockerfile for php and apache2 on x86_64
 * https://hub.docker.com/_/php/
-* https://packages.debian.org/de/jessie/php5
+* https://packages.debian.org/en/jessie/php/
 
 Use:
 * ``` git clone REPOSITORY && cd REPOSITORY && cd phpapache ```
