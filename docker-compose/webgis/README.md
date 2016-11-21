@@ -9,7 +9,7 @@
 
 Use:
 * ``` git clone REPOSITORY && cd REPOSITORY && cd docker-compose/webgis/ ```
-* ``` docker build -t phpapache:5.6 ../../phpapache/ ```
+* ``` docker build -t phpapache:5.6 ../../phpapache/5.6/ ```
 * Change Passwords and Settings: ``` nano docker-compose.yml ```
 * ``` sudo mkdir -p /srv/tobias/{mysql,postgresql,geoserver,nginx,ssl,html} ```
 * Optional (SSL): 

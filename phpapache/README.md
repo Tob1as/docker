@@ -3,8 +3,7 @@
 * https://packages.debian.org/en/jessie/php/
 
 Use:
-* ``` git clone REPOSITORY && cd REPOSITORY && cd phpapache ```
+* ``` git clone REPOSITORY && cd REPOSITORY && cd phpapache/5.6 ```
 * ``` docker build -t phpapache5.6 . ``` 
 * ``` docker run --name phpapache -d -p 80:80 --link some-container:alias -v /srv/html:/var/www/html nginx ``` 
 * http://localhost 
-or use my docker-compose.yml file as example.
