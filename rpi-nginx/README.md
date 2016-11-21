@@ -10,6 +10,6 @@ Use:
 	* ``` openssl req -new -key ssl.key -out ssl.csr ```
 	* ``` openssl x509 -req -days 1825 -in ssl.csr -signkey ssl.key -out ssl.crt ```
 	* ``` mv ssl.* /home/pi/.ssl/ ```
-* ``` docker build -t nginx . ``` 
-* ``` docker run --name nginx-proxy -d -p 80:80 -p 443:443 --link some-container:alias -v /home/pi/.ssl:/etc/nginx/ssl:ro -v /home/pi/.config/nginx:/etc/nginx/conf.d:ro -v /home/pi/html:/var/www/html nginx ``` 
+* ``` docker build -t rpi-nginx . ``` 
+* ``` docker run --name nginx-proxy -d -p 80:80 -p 443:443 --link some-container:alias -v /home/pi/.ssl:/etc/nginx/ssl:ro -v /home/pi/.config/nginx:/etc/nginx/conf.d:ro -v /home/pi/html:/var/www/html rpi-nginx ``` 
 * http://localhost 
